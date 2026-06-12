@@ -1,12 +1,4 @@
-/* =============================================
-   HMTI WEBSITE - Custom CSS
-   Warna Utama: #ADD8E6 (Light Blue)
-   ============================================= */
- 
-/* --- Google Fonts Import --- */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@400;600;700&display=swap');
- 
-/* --- CSS Variables --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@400;600;700&display=swap'); 
 :root {
   --primary: #e0f7ff;
   --primary-dark: #76cfed;
@@ -24,21 +16,14 @@
   --border-radius-sm: 10px;
   --transition: all 0.3s ease;
 }
- 
-/* --- Reset & Base --- */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
- 
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--bg-soft);
   color: var(--text-dark);
   overflow-x: hidden;
 }
- 
-/* =============================================
-   NAVBAR
-   ============================================= */
 .navbar-hmti {
   background: var(--white);
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
@@ -50,7 +35,6 @@ body {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 15px;
 }
- 
 .navbar-hmti::before {
   content: '';
   position: absolute;
@@ -60,7 +44,6 @@ body {
   height: 3px;
   background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
 }
-
 .navbar-hmti .navbar-brand {
   display: flex;
   align-items: center;
@@ -72,7 +55,6 @@ body {
   text-decoration: none;
   letter-spacing: 0.5px;
 }
- 
 .navbar-hmti .navbar-brand .brand-logo {
   width: 50px;
   height: 50px;
@@ -87,7 +69,6 @@ body {
   border: 2px solid rgba(255,255,255,0.5);
   flex-shrink: 0;
 }
- 
 .navbar-hmti .nav-link {
   color: var(--text-dark) !important;
   font-weight: 500;
@@ -97,33 +78,21 @@ body {
   transition: var(--transition);
   margin: 0 2px;
 }
- 
 .navbar-hmti .nav-link:hover,
 .navbar-hmti .nav-link.active {
   color: var(--accent) !important;
   background: var(--bg-soft);
 }
- 
 .navbar-hmti .navbar-toggler {
   border: 1px solid var(--primary-dark);
   color: var(--accent);
 }
- 
-/* Efek tombol dipencet */
 .btn-hero-primary:active, .btn-hero-outline:active, .btn-lihat-kontak:active, .nav-link:active {
   transform: scale(0.95);
   transition: transform 0.1s;
 }
-
-/* =============================================
-   PAGE SECTIONS (show/hide)
-   ============================================= */
 .page-section { display: none; }
 .page-section.active { display: block; }
- 
-/* =============================================
-   HERO / BERANDA
-   ============================================= */
 .hero-section {
   background: linear-gradient(160deg, var(--accent) 0%, var(--primary-dark) 50%, var(--primary) 100%);
   min-height: 80vh;
@@ -133,7 +102,6 @@ body {
   overflow: hidden;
   padding: 80px 0 60px;
 }
- 
 .hero-section::before {
   content: '';
   position: absolute;
@@ -143,7 +111,6 @@ body {
   background: rgba(255,255,255,0.07);
   pointer-events: none;
 }
- 
 .hero-section::after {
   content: '';
   position: absolute;
@@ -153,22 +120,18 @@ body {
   background: rgba(255,255,255,0.05);
   pointer-events: none;
 }
- 
 .hero-logo-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
 }
- 
 .hero-logo img {
-  width: 300px;
-  height: 300px;
-  width: 300px; 
-  height: 300px; 
+  max-width: 100%;
+  height: auto;
+  max-height: 320px;
   object-fit: contain;
   animation: floatAnim 4s ease-in-out infinite;
 }
- 
 .hero-logo .logo-placeholder {
   font-size: 3.5rem;
   font-weight: 900;
@@ -177,7 +140,6 @@ body {
   text-shadow: 0 2px 10px rgba(0,0,0,0.2);
   line-height: 1;
 }
- 
 .hero-logo .logo-sub {
   font-size: 0.7rem;
   color: rgba(255,255,255,0.8);
@@ -187,9 +149,7 @@ body {
   letter-spacing: 1px;
   display: block;
 }
- 
 .hero-content { color: white; }
- 
 .hero-eyebrow {
   background: rgba(255,255,255,0.2);
   display: inline-block;
@@ -202,7 +162,6 @@ body {
   margin-bottom: 18px;
   border: 1px solid rgba(255,255,255,0.3);
 }
- 
 .hero-title {
   font-size: 2.8rem;
   font-weight: 800;
@@ -210,17 +169,14 @@ body {
   margin-bottom: 8px;
   text-shadow: 0 2px 15px rgba(0,0,0,0.15);
 }
- 
 .hero-title.typing::after {
   content: '|';
   animation: blinkCursor 0.8s infinite;
 }
-
 @keyframes blinkCursor {
   from, to { opacity: 1; }
   50% { opacity: 0; }
 }
-
 .hero-subtitle {
   font-size: 1.05rem;
   font-weight: 400;
@@ -228,18 +184,15 @@ body {
   margin-bottom: 28px;
   line-height: 1.6;
 }
- 
 .hero-stats {
   display: flex;
   gap: 28px;
   flex-wrap: wrap;
   margin-top: 32px;
 }
- 
 .hero-stat {
   text-align: center;
 }
- 
 .hero-stat .stat-number {
   font-size: 2rem;
   font-weight: 800;
@@ -247,7 +200,6 @@ body {
   line-height: 1;
   display: block;
 }
- 
 .hero-stat .stat-label {
   font-size: 0.75rem;
   color: rgba(255,255,255,0.75);
@@ -255,14 +207,12 @@ body {
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
- 
 .hero-cta-group {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 30px;
 }
- 
 .btn-hero-primary {
   background: white;
   color: var(--accent);
@@ -275,13 +225,11 @@ body {
   transition: var(--transition);
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
- 
 .btn-hero-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(0,0,0,0.2);
   background: var(--primary-light);
 }
- 
 .btn-hero-outline {
   background: transparent;
   color: white;
@@ -293,15 +241,11 @@ body {
   cursor: pointer;
   transition: var(--transition);
 }
- 
 .btn-hero-outline:hover {
   background: rgba(255,255,255,0.15);
   border-color: white;
   transform: translateY(-2px);
 }
- 
-/* --- Instagram Grid --- */
-
 .ig-post-card {
   position: relative;
   aspect-ratio: 1 / 1;
@@ -309,14 +253,12 @@ body {
   border-radius: var(--border-radius-sm);
   cursor: pointer;
 }
-
 .ig-post-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
-
 .ig-overlay {
   position: absolute;
   top: 0; left: 0;
@@ -330,15 +272,12 @@ body {
   color: white;
   font-size: 1.5rem;
 }
-
 .ig-post-card:hover img {
   transform: scale(1.1);
 }
-
 .ig-post-card:hover .ig-overlay {
   opacity: 1;
 }
-
 .section-title {
   font-size: 1.7rem;
   font-weight: 800;
@@ -347,7 +286,6 @@ body {
   display: inline-block;
   margin-bottom: 6px;
 }
- 
 .section-title::after {
   content: '';
   position: absolute;
@@ -356,26 +294,22 @@ body {
   background: linear-gradient(90deg, var(--primary-dark), var(--accent));
   border-radius: 2px;
 }
-
 .ig-section .section-title::after,
 #page-anggota .section-title::after,
 #page-proker .section-title::after {
   content: none;
 }
-
 .section-subtitle {
   color: var(--text-mid);
   font-size: 0.92rem;
   margin-top: 14px;
   margin-bottom: 32px;
 }
- 
 .carousel-hmti .carousel-item {
   height: 360px;
   border-radius: var(--border-radius);
   overflow: hidden;
 }
- 
 .carousel-hmti .carousel-item .carousel-slide {
   height: 100%;
   display: flex;
@@ -389,30 +323,22 @@ body {
   flex-direction: column;
   gap: 12px;
 }
- 
 .carousel-hmti .carousel-slide .slide-icon {
   font-size: 3rem;
 }
- 
 .carousel-hmti .carousel-indicators [data-bs-target] {
   background-color: var(--primary-dark);
   width: 10px; height: 10px;
   border-radius: 50%;
 }
- 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   filter: invert(1) brightness(0.5) sepia(1) hue-rotate(170deg);
 }
- 
-/* =============================================
-   SEJARAH / TENTANG
-   ============================================= */
 .about-section {
   padding: 60px 0;
   background: var(--bg-soft);
 }
- 
 .about-card {
   background: linear-gradient(135deg, #ffffff 0%, var(--primary) 100%);
   border-radius: var(--border-radius);
@@ -424,13 +350,11 @@ body {
   position: relative;
   overflow: hidden;
 }
- 
 .about-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--card-shadow-hover);
   background: linear-gradient(135deg, var(--primary-light) 0%, #ffffff 100%);
 }
- 
 .about-card h4 {
   font-weight: 700;
   color: var(--text-dark);
@@ -440,7 +364,6 @@ body {
   align-items: center;
   gap: 12px;
 }
-
 .about-card h4 i {
   color: var(--primary-dark);
   font-size: 1rem;
@@ -452,40 +375,31 @@ body {
   justify-content: center;
   border-radius: 12px;
 }
- 
 .about-card p {
   color: var(--text-mid);
   font-size: 0.9rem;
   line-height: 1.8;
   margin: 0;
 }
-
 .misi-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .misi-list li {
   display: flex;
   gap: 10px;
   margin-bottom: 8px;
   color: var(--text-mid);
 }
-
 .misi-list li i {
   color: var(--primary-dark);
   margin-top: 5px;
 }
- 
-/* =============================================
-   STRUKTUR PENGURUS
-   ============================================= */
 .pengurus-section {
   padding: 60px 0 20px;
   background: white;
 }
- 
 .pengurus-card {
   background: rgba(255, 255, 255, 0.9);
   border-radius: var(--border-radius);
@@ -494,14 +408,12 @@ body {
   transition: var(--transition);
   text-align: center;
   border: 1px solid rgba(0, 0, 0, 0.03);
-}
- 
+} 
 .pengurus-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--card-shadow-hover);
   border-color: var(--primary-dark);
 }
- 
 .pengurus-card .card-photo {
   height: 200px;
   background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
@@ -512,17 +424,14 @@ body {
   overflow: hidden;
   transition: var(--transition);
 }
-
 .pengurus-card:hover .card-photo img {
   transform: scale(1.1);
 }
- 
 .pengurus-card .card-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
- 
+} 
 .pengurus-card .card-photo .avatar-initials {
   width: 80px; height: 80px;
   background: rgba(255,255,255,0.25);
@@ -536,11 +445,9 @@ body {
   border: 3px solid rgba(255,255,255,0.5);
   text-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
- 
 .pengurus-card .card-body-custom {
   padding: 20px 16px;
 }
- 
 .pengurus-card .card-name {
   font-size: 0.95rem;
   font-weight: 700;
@@ -548,7 +455,6 @@ body {
   margin-bottom: 4px;
   line-height: 1.3;
 }
- 
 .pengurus-card .card-role {
   font-size: 0.78rem;
   color: var(--accent);
@@ -564,7 +470,6 @@ body {
   margin-bottom: 14px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
- 
 .btn-lihat-kontak {
   background: linear-gradient(135deg, var(--primary-dark), var(--accent));
   color: white;
@@ -577,19 +482,13 @@ body {
   transition: var(--transition);
   width: 100%;
 }
- 
 .btn-lihat-kontak:hover {
   opacity: 0.88;
   transform: scale(1.02);
 }
- 
-/* =============================================
-   ANGGOTA PAGE
-   ============================================= */
 .anggota-section {
   padding: 50px 0 10px;
 }
- 
 .filter-bar {
   background: white;
   padding: 20px 24px;
@@ -601,14 +500,12 @@ body {
   gap: 16px;
   flex-wrap: wrap;
 }
- 
 .filter-bar label {
   font-weight: 600;
   font-size: 0.88rem;
   color: var(--text-mid);
   white-space: nowrap;
 }
- 
 .filter-bar select {
   border: 2px solid var(--primary);
   border-radius: 10px;
@@ -622,18 +519,15 @@ body {
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
 }
- 
 .filter-bar select:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(74,154,184,0.15);
 }
- 
 .search-input-wrap {
   position: relative;
   flex: 1;
   min-width: 200px;
 }
- 
 .search-input-wrap .search-icon {
   position: absolute;
   left: 14px; top: 50%;
@@ -641,7 +535,6 @@ body {
   color: var(--primary-dark);
   font-size: 0.85rem;
 }
- 
 .search-input-wrap input {
   border: 2px solid var(--primary);
   border-radius: 10px;
@@ -654,12 +547,10 @@ body {
   font-family: 'Poppins', sans-serif;
   transition: var(--transition);
 }
- 
 .search-input-wrap input:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(74,154,184,0.15);
 }
- 
 .divisi-header {
   display: flex;
   align-items: center;
@@ -668,7 +559,6 @@ body {
   padding-bottom: 14px;
   border-bottom: 2px solid var(--primary-light);
 }
- 
 .divisi-header .divisi-icon {
   width: 48px; height: 48px;
   background: linear-gradient(135deg, var(--primary), var(--accent));
@@ -680,21 +570,18 @@ body {
   color: white;
   flex-shrink: 0;
 }
- 
 .divisi-header h3 {
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-dark);
   margin: 0;
 }
- 
 .divisi-header .divisi-koordinator {
   font-size: 0.8rem;
   color: var(--accent);
   font-weight: 500;
   margin: 0;
 }
- 
 .member-card {
   background: white;
   border-radius: 24px;
@@ -706,13 +593,11 @@ body {
   display: flex;
   flex-direction: column;
 }
- 
 .member-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 114, 255, 0.1);
   border-color: var(--primary-dark);
 }
- 
 .member-card .card-photo {
   height: 190px;
   background: linear-gradient(135deg, #f0f8fc 0%, #e0f2fe 100%);
@@ -723,18 +608,15 @@ body {
   overflow: hidden;
   transition: var(--transition);
 }
- 
 .member-card .card-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s ease;
 }
-
 .member-card:hover .card-photo img {
   transform: scale(1.1);
 }
- 
 .member-card .card-photo .avatar-initials {
   width: 72px; height: 72px;
   background: rgba(255,255,255,0.35);
@@ -747,14 +629,12 @@ body {
   color: var(--accent);
   border: 3px solid rgba(255,255,255,0.6);
 }
- 
 .member-card .card-body-custom {
   padding: 20px 18px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
- 
 .member-card .card-name {
   font-size: 1rem;
   font-weight: 700;
@@ -763,7 +643,6 @@ body {
   line-height: 1.2;
   letter-spacing: -0.3px;
 }
- 
 .member-card .card-divisi {
   font-size: 0.75rem;
   color: var(--primary-dark);
@@ -772,7 +651,6 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
- 
 .member-card .card-role-badge {
   position: absolute;
   top: 12px; left: 12px;
@@ -787,7 +665,6 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
-
 .btn-lihat-kontak {
   margin-top: auto;
   background: #f8fafc;
@@ -799,45 +676,35 @@ body {
   font-weight: 600;
   transition: all 0.3s ease;
 }
-
 .btn-lihat-kontak:hover {
   background: var(--primary-dark);
   color: white;
   border-color: var(--primary-dark);
   transform: scale(1.03);
 }
- 
-/* =============================================
-   KONTAK PAGE
-   ============================================= */
 .kontak-section {
   padding: 60px 0 70px;
 }
- 
 .kontak-form-card {
   background: white;
   border-radius: var(--border-radius);
   padding: 40px;
   box-shadow: var(--card-shadow);
 }
- 
 .kontak-form-card h3 {
   font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 6px;
 }
- 
 .kontak-form-card p.lead-text {
   color: var(--text-mid);
   font-size: 0.9rem;
   margin-bottom: 28px;
 }
- 
 .form-floating label {
   font-size: 0.88rem;
   color: var(--text-mid);
 }
- 
 .form-control, .form-select {
   border: 2px solid #daeef6;
   border-radius: 10px;
@@ -846,19 +713,16 @@ body {
   font-family: 'Poppins', sans-serif;
   transition: var(--transition);
 }
- 
 .form-control:focus, .form-select:focus {
   border-color: var(--primary-dark);
   box-shadow: 0 0 0 3px rgba(122,184,204,0.2);
 }
- 
 .form-label {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-mid);
   margin-bottom: 6px;
 }
- 
 .btn-submit-kontak {
   background: linear-gradient(135deg, var(--primary-dark), var(--accent));
   color: white;
@@ -872,13 +736,11 @@ body {
   width: 100%;
   font-family: 'Poppins', sans-serif;
 }
- 
 .btn-submit-kontak:hover {
   opacity: 0.88;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0,100,150,0.3);
 }
- 
 .kontak-info-card {
   background: linear-gradient(160deg, var(--accent) 0%, var(--primary-dark) 100%);
   border-radius: var(--border-radius);
@@ -886,20 +748,17 @@ body {
   color: white;
   height: 100%;
 }
- 
 .kontak-info-card h4 {
   font-weight: 700;
   margin-bottom: 20px;
   font-size: 1.1rem;
 }
- 
 .kontak-info-item {
   display: flex;
   gap: 14px;
   align-items: flex-start;
   margin-bottom: 20px;
 }
- 
 .kontak-info-item .ci-icon {
   width: 40px; height: 40px;
   background: rgba(255,255,255,0.2);
@@ -910,19 +769,16 @@ body {
   font-size: 1rem;
   flex-shrink: 0;
 }
- 
 .kontak-info-item .ci-text strong {
   display: block;
   font-size: 0.25rem;
   font-weight: 500;
   margin-bottom: 2px;
 }
- 
 .kontak-info-item .ci-text span {
   font-size: 0.82rem;
   color: rgba(255,255,255,0.8);
 }
- 
 .toast-success {
   position: fixed;
   bottom: 30px; right: 30px;
@@ -936,21 +792,15 @@ body {
   display: none;
   box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
   animation: slideIn 0.3s ease;
-}
- 
+} 
 @keyframes slideIn {
   from { transform: translateX(100px); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
 }
- 
-/* =============================================
-   MODAL
-   ============================================= */
 .modal-sm-custom {
   max-width: 320px;
   margin: 1.75rem auto;
 }
-
 .modal-header {
   border-bottom: none;
   padding: 12px 15px 0;
@@ -958,7 +808,6 @@ body {
   right: 0;
   z-index: 10;
 }
- 
 .modal-header .btn-close {
   background-color: var(--bg-soft);
   opacity: 0.5;
@@ -966,7 +815,6 @@ body {
   border-radius: 50%;
   font-size: 0.6rem;
 }
- 
 .modal-content {
   border-radius: 28px !important;
   border: none;
@@ -974,8 +822,6 @@ body {
   position: relative;
   background: #ffffff;
 }
- 
-/* --- Lis Tepi Sudut (Corner Accents) --- */
 .modal-content::before {
   content: '';
   position: absolute;
@@ -986,7 +832,6 @@ body {
   border-top-left-radius: 28px;
   pointer-events: none;
 }
-
 .modal-content::after {
   content: '';
   position: absolute;
@@ -997,11 +842,9 @@ body {
   border-bottom-right-radius: 28px;
   pointer-events: none;
 }
- 
 .modal-body-hmti {
   padding: 50px 25px 40px;
 }
-
 #modal-nama {
   font-size: 1.3rem;
   font-weight: 800;
@@ -1009,7 +852,6 @@ body {
   margin-bottom: 2px;
   letter-spacing: -0.5px;
 }
-
 #modal-jabatan {
   font-size: 0.78rem;
   color: var(--text-mid);
@@ -1018,7 +860,6 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
 .wa-btn {
   background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
   color: white;
@@ -1035,13 +876,11 @@ body {
   box-shadow: 0 10px 20px -5px rgba(37, 211, 102, 0.4);
   transition: var(--transition);
 }
- 
 .wa-btn:hover {
   color: white;
   transform: translateY(-3px);
   box-shadow: 0 15px 25px -5px rgba(37, 211, 102, 0.5);
 }
- 
 .kontak-number {
   font-size: 0.9rem;
   font-weight: 700;
@@ -1053,104 +892,76 @@ body {
   letter-spacing: 1px;
   border: 1px solid rgba(0,0,0,0.03);
 }
- 
-/* =============================================
-   FOOTER
-   ============================================= */
 footer {
   background: linear-gradient(135deg, var(--accent) 0%, #0d3d52 100%);
   color: rgba(255,255,255,0.8);
   padding: 15px 0;
 }
- 
 footer .footer-logo {
   font-size: 1.4rem;
   font-weight: 800;
   color: white;
   margin-bottom: 10px;
 }
- 
 footer p {
   font-size: 0.85rem;
   line-height: 1.65;
 }
- 
 footer .footer-divider {
   border-color: rgba(255,255,255,0.15);
   margin: 24px 0 16px;
 }
- 
 footer .footer-bottom {
   font-size: 0.8rem;
   color: rgba(255,255,255,0.55);
   text-align: center;
 }
- 
 footer .footer-social a {
   color: rgba(255,255,255,0.7);
   font-size: 1.1rem;
   margin-right: 14px;
   transition: var(--transition);
 }
- 
 footer .footer-social a:hover {
   color: var(--primary);
 }
- 
-/* =============================================
-   ANIMATIONS
-   ============================================= */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
- 
 @keyframes floatAnim {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
 }
-
 .page-section.active {
   animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
-
-/* Class untuk animasi kartu muncul satu per satu */
 .animate-item {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .animate-item.show {
   opacity: 1;
   transform: translateY(0);
 }
- 
-/* =============================================
-   UTILITIES
-   ============================================= */
 .divisi-group {
   margin-bottom: 25px;
 }
- 
 .no-result-msg {
   text-align: center;
   padding: 60px 20px;
   color: var(--text-mid);
 }
- 
 .no-result-msg i {
   font-size: 3rem;
   color: var(--primary);
   margin-bottom: 12px;
   display: block;
 }
-
-/* --- Proker Page --- */
 .proker-page-section {
   padding: 60px 0 20px;
 }
-
 .proker-card {
   background: white;
   border-radius: 24px;
@@ -1162,20 +973,17 @@ footer .footer-social a:hover {
   display: flex;
   flex-direction: column;
 }
-
 .proker-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 114, 255, 0.08);
   border-color: var(--primary-dark);
 }
-
 .proker-header {
   display: flex;
   align-items: center;
   gap: 18px;
   margin-bottom: 25px;
 }
-
 .proker-icon-box {
   width: 52px;
   height: 52px;
@@ -1188,12 +996,10 @@ footer .footer-social a:hover {
   font-size: 1.4rem;
   transition: var(--transition);
 }
-
 .proker-card:hover .proker-icon-box {
   background: linear-gradient(45deg, var(--primary-dark), var(--accent));
   color: white;
 }
-
 .proker-header h5 {
   font-weight: 700;
   color: var(--text-dark);
@@ -1201,7 +1007,6 @@ footer .footer-social a:hover {
   margin: 0;
   line-height: 1.3;
 }
-
 .badge-proker, .badge-nonproker {
   font-size: 0.65rem;
   text-transform: uppercase;
@@ -1212,23 +1017,19 @@ footer .footer-social a:hover {
   display: inline-block;
   margin-bottom: 12px;
 }
-
 .badge-proker {
   background: #eef2ff;
   color: #4f46e5;
 }
-
 .badge-nonproker {
   background: #f0fdf4;
   color: #16a34a;
 }
-
 .proker-sub-section ul {
   list-style: none;
   padding-left: 0;
   margin-bottom: 0;
 }
-
 .proker-sub-section ul li {
   font-size: 0.9rem;
   color: var(--text-mid);
@@ -1238,20 +1039,16 @@ footer .footer-social a:hover {
   gap: 10px;
   line-height: 1.5;
 }
-
 .proker-bullet {
   color: var(--primary-dark);
   font-size: 0.7rem;
   margin-top: 6px;
 }
-
 .non-proker-bullet {
   color: #babcbe;
   font-size: 0.5rem;
   margin-top: 8px;
 }
-
-/* --- Member Proker Badge --- */
 .card-proker-pribadi {
   font-size: 0.7rem;
   background: #f1f5f9;
@@ -1270,17 +1067,12 @@ footer .footer-social a:hover {
   font-weight: 500;
   border: 1px solid #e2e8f0;
 }
- 
-/* Scrollbar Custom */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg-soft); }
 ::-webkit-scrollbar-thumb { background: var(--primary-dark); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
- 
-/* Responsive Tweaks */
 @media (max-width: 768px) {
   .hero-title { font-size: 2rem; }
-  .hero-logo { width: 130px; height: 130px; }
   .hero-stats { gap: 20px; }
   .kontak-form-card { padding: 24px; }
   .about-card { margin-bottom: 16px; }

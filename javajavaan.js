@@ -1,11 +1,3 @@
-// =============================================
-// HMTI WEBSITE - JavaScript + jQuery
-// =============================================
- 
-// -------------------------------------------------------
-// DATA ANGGOTA HMTI
-// Array of objects - mudah dikelola dan diupdate
-// -------------------------------------------------------
 const dataPengurus = [
   {
     id: 'p1',
@@ -39,8 +31,7 @@ const dataPengurus = [
     kontak: '0852-5106-0155',
     foto: 'manda.png',
   }
-];
- 
+]; 
 const dataDivisi = [
   {
     nama: 'Divisi Kerohanian',
@@ -189,8 +180,7 @@ const dataDivisi = [
       { id: 'f7', nama: 'Nadya Nadhir Soraya',      divisi: 'Kesektariatan', jabatan: 'Anggota', kontak: '0853-4861-7818', foto: 'nadya.png', prokerPribadi: 'PJ Pengembangan Dana' }
     ]
   }
-];
- 
+]; 
 let dataInstagram = [
   { image: 'patner.png', link: 'https://www.instagram.com/p/DYEvc3LkhYc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
   { image: 'muker 2.jpeg', link: 'https://www.instagram.com/p/DVlsiBeEu2e/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
@@ -204,15 +194,11 @@ let dataInstagram = [
   { image: 'bench.jpeg', link: 'https://www.instagram.com/p/DX7FpTcEkFs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
   { image: 'pkm.jpeg', link: 'https://www.instagram.com/p/DYw7d32SHCQ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
   { image: 'wgd.jpeg', link: 'https://www.instagram.com/p/DZSU-hAksJG/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' }
-  
-]; 
 
+]; 
 async function renderInstagramFeed() {
   const container = $('#ig-feed-container');
   container.empty();
-
-
-
   dataInstagram.forEach(post => { 
     container.append(`
       <div class="col-6 col-md-4 col-lg-2">
@@ -224,42 +210,27 @@ async function renderInstagramFeed() {
     `);
   });
 }
-
-// -------------------------------------------------------
-// HELPER: Ambil Inisial Nama
-// -------------------------------------------------------
 function getInitials(nama) {
   const words = nama.trim().split(/\s+/);
   if (words.length === 1) return words[0][0].toUpperCase();
   return (words[0][0] + words[1][0]).toUpperCase();
 }
- 
-// -------------------------------------------------------
-// HELPER: Render foto atau inisial
-// -------------------------------------------------------
 function renderFoto(anggota, size = '72px') {
   if (anggota.foto) {
     return `<img src="${anggota.foto}" alt="${anggota.nama}" style="width:100%;height:100%;object-fit:cover;">`;
   }
   return `<div class="avatar-initials">${getInitials(anggota.nama)}</div>`;
 }
- 
-// -------------------------------------------------------
-// HELPER: Buat HTML kartu anggota
-// -------------------------------------------------------
 function buatKartuAnggota(anggota, isKoordinator = false) {
   const fotoHtml = anggota.foto
     ? `<img src="${anggota.foto}" alt="${anggota.nama}" style="width:100%;height:100%;object-fit:cover;">`
     : `<div class="avatar-initials">${getInitials(anggota.nama)}</div>`;
- 
   const badgeHtml = isKoordinator
     ? `<div class="card-role-badge">Koordinator</div>`
     : '';
- 
   const prokerHtml = anggota.prokerPribadi 
     ? `<div class="card-proker-pribadi"><i class="fas fa-thumbtack me-1"></i>${anggota.prokerPribadi}</div>`
     : '';
-
   return `
     <div class="col-6 col-md-4 col-lg-3 mb-4 member-card-wrap animate-item">
       <div class="member-card h-100" data-id="${anggota.id}" data-nama="${anggota.nama}"
@@ -287,23 +258,16 @@ function buatKartuAnggota(anggota, isKoordinator = false) {
     </div>
   `;
 }
- 
-// -------------------------------------------------------
-// RENDER HALAMAN BERANDA - Pengurus Inti
-// -------------------------------------------------------
 function renderPengurusInti() {
   const container = $('#pengurus-inti-container');
   container.empty();
- 
   dataPengurus.forEach(p => {
     const fotoHtml = p.foto
       ? `<img src="${p.foto}" alt="${p.nama}" style="width:100%;height:100%;object-fit:cover;">`
       : `<div class="avatar-initials">${getInitials(p.nama)}</div>`;
- 
     const prokerHtml = p.prokerPribadi 
       ? `<div class="card-proker-pribadi small mb-2"><i class="fas fa-thumbtack me-1"></i>${p.prokerPribadi}</div>`
       : '';
-
     const card = `
       <div class="col-6 col-md-3 mb-4 animate-item">
         <div class="pengurus-card h-100">
@@ -328,18 +292,12 @@ function renderPengurusInti() {
     container.append(card);
   });
 }
- 
-// -------------------------------------------------------
-// RENDER HALAMAN PROGRAM KERJA
-// -------------------------------------------------------
 function renderProkerPage() {
   const container = $('#proker-container');
   container.empty();
-
   dataDivisi.forEach(div => {
     const prokers = div.prokerList.map(item => `<li><i class="fas fa-arrow-right proker-bullet"></i>${item}</li>`).join('');
     const nonProkers = div.nonProkerList.map(item => `<li><i class="fas fa-circle-dot non-proker-bullet"></i>${item}</li>`).join('');
-
     const html = `
       <div class="col-lg-6 col-xl-4 mb-4 animate-item">
         <div class="proker-card">
@@ -363,24 +321,15 @@ function renderProkerPage() {
     container.append(html);
   });
 }
-
-
-// -------------------------------------------------------
-// RENDER HALAMAN ANGGOTA
-// -------------------------------------------------------
 function renderSemuaAnggota(filterDivisi = '', searchQuery = '') {
   const container = $('#anggota-container');
   container.empty();
- 
   let totalTampil = 0;
   const query = searchQuery.toLowerCase().trim();
- 
-  // --- 1. Filter Pengurus Inti ---
   if (!filterDivisi || filterDivisi === 'Pengurus Inti') {
     const filteredInti = query 
       ? dataPengurus.filter(p => p.nama.toLowerCase().includes(query))
       : dataPengurus;
-    
     if (filteredInti.length > 0) {
       totalTampil += filteredInti.length;
       const kartuHtml = filteredInti.map(p => buatKartuAnggota(p, false)).join('');
@@ -392,27 +341,18 @@ function renderSemuaAnggota(filterDivisi = '', searchQuery = '') {
       `);
     }
   }
-
-  // --- 2. Filter Per Divisi ---
   dataDivisi.forEach(divisi => {
     if (filterDivisi && filterDivisi !== 'Pengurus Inti' && divisi.nama !== filterDivisi) return;
- 
-    // Kumpulkan semua anggota (koordinator + anggota biasa)
     const semuaAnggota = [
       { ...divisi.koordinator, isKoord: true },
       ...divisi.anggota.map(a => ({ ...a, isKoord: false }))
     ];
- 
-    // Filter berdasar search
     const filtered = query
       ? semuaAnggota.filter(a => a.nama.toLowerCase().includes(query))
       : semuaAnggota;
- 
     if (filtered.length === 0) return;
     totalTampil += filtered.length;
- 
     const kartuHtml = filtered.map(a => buatKartuAnggota(a, a.isKoord)).join('');
- 
     const divisiBlock = `
       <div class="divisi-group">
         <div class="divisi-header">
@@ -428,7 +368,6 @@ function renderSemuaAnggota(filterDivisi = '', searchQuery = '') {
     `;
     container.append(divisiBlock);
   });
- 
   if (totalTampil === 0) {
     container.html(`
       <div class="no-result-msg">
@@ -439,29 +378,20 @@ function renderSemuaAnggota(filterDivisi = '', searchQuery = '') {
     `);
   }
 }
- 
-// -------------------------------------------------------
-// HELPER: Trigger Staggered Animation
-// -------------------------------------------------------
 function triggerStaggeredAnimation(parentSelector) {
   const items = $(parentSelector).find('.animate-item');
   items.removeClass('show');
   items.each(function(i) {
     setTimeout(() => {
       $(this).addClass('show');
-    }, i * 40); // Jeda dipercepat menjadi 40ms agar terasa lebih responsif
+    }, i * 40); 
   });
 }
-
-// -------------------------------------------------------
-// HELPER: Typing Effect
-// -------------------------------------------------------
 let typingTimer;
 function runTypingEffect(selector, text, speed = 50) {
   const $el = $(selector);
   clearTimeout(typingTimer);
-  $el.text('').addClass('typing');
-  
+  $el.text('').addClass('typing'); 
   let i = 0;
   function type() {
     if (i < text.length) {
@@ -472,10 +402,6 @@ function runTypingEffect(selector, text, speed = 50) {
   }
   type();
 }
-
-// -------------------------------------------------------
-// POPULATE FILTER DIVISI
-// -------------------------------------------------------
 function populateFilterDivisi() {
   const sel = $('#filter-divisi');
   sel.find('option:not(:first)').remove();
@@ -484,22 +410,12 @@ function populateFilterDivisi() {
     sel.append(`<option value="${d.nama}">${d.nama}</option>`);
   });
 }
- 
-// -------------------------------------------------------
-// NAVIGASI HALAMAN (SPA-like dengan jQuery)
-// -------------------------------------------------------
 function navigateTo(page) {
   $('.page-section').removeClass('active');
   $(`#page-${page}`).addClass('active');
- 
-  // Update active nav link
   $('.navbar-hmti .nav-link').removeClass('active');
   $(`.navbar-hmti .nav-link[data-page="${page}"]`).addClass('active');
- 
-  // Scroll ke atas
   $('html, body').animate({ scrollTop: 0 }, 300);
- 
-  // Render sesuai halaman
   if (page === 'beranda') {
     renderPengurusInti();
     renderInstagramFeed();
@@ -514,75 +430,46 @@ function navigateTo(page) {
     triggerStaggeredAnimation('#page-proker');
   }
 }
- 
-// -------------------------------------------------------
-// MODAL: Tampilkan kontak (jQuery)
-// -------------------------------------------------------
 function tampilkanModal(data) {
   const waLink = `https://wa.me/62${data.kontak.replace(/[^0-9]/g, '').slice(1)}`;
- 
   $('#modal-nama').text(data.nama);
   $('#modal-jabatan').text(data.jabatan + ' — ' + data.divisi);
   $('#modal-nomor').html(`<i class="fas fa-phone-alt me-2"></i> ${data.kontak}`);
   $('#modal-wa-btn').attr('href', waLink);
- 
   const modal = new bootstrap.Modal(document.getElementById('modalKontak'));
   modal.show();
 }
- 
-// -------------------------------------------------------
-// FORM KONTAK - Validasi & Submit (jQuery)
-// -------------------------------------------------------
 function initFormKontak() {
   $('#form-kontak').on('submit', function(e) {
-    e.preventDefault();
- 
+    e.preventDefault(); 
     const nama = $('#input-nama').val().trim();
     const email = $('#input-email').val().trim();
     const topik = $('#input-topik').val();
     const pesan = $('#input-pesan').val().trim();
- 
-    // Validasi jQuery sederhana
     let valid = true;
- 
     if (!nama) { $('#input-nama').addClass('is-invalid'); valid = false; }
     else { $('#input-nama').removeClass('is-invalid').addClass('is-valid'); }
- 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       $('#input-email').addClass('is-invalid'); valid = false;
     } else { $('#input-email').removeClass('is-invalid').addClass('is-valid'); }
- 
     if (!topik) { $('#input-topik').addClass('is-invalid'); valid = false; }
     else { $('#input-topik').removeClass('is-invalid').addClass('is-valid'); }
- 
     if (!pesan) { $('#input-pesan').addClass('is-invalid'); valid = false; }
     else { $('#input-pesan').removeClass('is-invalid').addClass('is-valid'); }
- 
     if (!valid) return;
- 
-    // Simulasi pengiriman
     const btn = $('#btn-kirim');
     btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin me-2"></i>Mengirim...');
- 
     setTimeout(function() {
       btn.prop('disabled', false).html('<i class="fas fa-paper-plane me-2"></i>Kirim Pesan');
       $('#form-kontak')[0].reset();
       $('.form-control, .form-select').removeClass('is-valid is-invalid');
- 
-      // Tampilkan toast sukses
       $('#toast-success').fadeIn(300).delay(3500).fadeOut(400);
     }, 1800);
   });
- 
-  // Real-time validation: hapus error saat user mulai mengetik
   $('.form-control, .form-select').on('input change', function() {
     $(this).removeClass('is-invalid');
   });
 }
- 
-// -------------------------------------------------------
-// COUNTER ANIMASI (jQuery)
-// -------------------------------------------------------
 function animateCounters() {
   $('.counter-num').each(function() {
     const target = parseInt($(this).data('target'));
@@ -596,28 +483,18 @@ function animateCounters() {
     }, 30);
   });
 }
- 
-// -------------------------------------------------------
-// READY: Main init dengan jQuery
-// -------------------------------------------------------
 $(document).ready(function() {
- 
-  // --- Navigasi ---
   $(document).on('click', '.nav-link[data-page]', function(e) {
     e.preventDefault();
     const page = $(this).data('page');
     navigateTo(page);
-    // Tutup navbar mobile
     $('.navbar-collapse').collapse('hide');
   });
- 
   $(document).on('click', '[data-goto]', function(e) {
     e.preventDefault();
     const page = $(this).data('goto');
     navigateTo(page);
-  });
- 
-  // --- Tombol Lihat Kontak ---
+  }); 
   $(document).on('click', '.btn-show-contact', function() {
     const data = {
       id: $(this).data('id'),
@@ -629,16 +506,12 @@ $(document).ready(function() {
     };
     tampilkanModal(data);
   });
- 
-  // --- Filter Divisi ---
   $('#filter-divisi').on('change', function() {
     const filterVal = $(this).val();
     const searchVal = $('#search-anggota').val();
     renderSemuaAnggota(filterVal, searchVal);
     triggerStaggeredAnimation('#page-anggota');
   });
- 
-  // --- Search Anggota (live search dengan jQuery) ---
   let searchTimeout;
   $('#search-anggota').on('input', function() {
     clearTimeout(searchTimeout);
@@ -650,24 +523,14 @@ $(document).ready(function() {
       triggerStaggeredAnimation('#page-anggota');
     }, 300);
   });
- 
-  // --- Reset filter ---
   $('#btn-reset-filter').on('click', function() {
     $('#filter-divisi').val('');
     $('#search-anggota').val('');
     renderSemuaAnggota();
   });
- 
-  // --- Init form ---
   initFormKontak();
- 
-  // --- Init halaman beranda ---
   navigateTo('beranda');
- 
-  // --- Jalankan counter saat terlihat ---
   setTimeout(animateCounters, 500);
- 
-  // --- Navbar scroll effect ---
   $(window).on('scroll', function() {
     if ($(this).scrollTop() > 50) {
       $('.navbar-hmti').css('box-shadow', '0 4px 30px rgba(0,100,150,0.4)');
@@ -675,9 +538,6 @@ $(document).ready(function() {
       $('.navbar-hmti').css('box-shadow', '0 2px 20px rgba(0,100,150,0.3)');
     }
   });
- 
-  // --- Tooltip Bootstrap ---
   const tooltipEls = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
   tooltipEls.forEach(el => new bootstrap.Tooltip(el));
- 
 });
